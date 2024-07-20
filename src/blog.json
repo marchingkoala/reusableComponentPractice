@@ -1,0 +1,17 @@
+{
+"article":[
+    {"title": "When it's too hot to cook",
+    "secondary":"Kitchen Confidential",
+    "createdBy": "Sarah Withermore",
+    "image": "/Asset 2.png" },
+    {"title": "A letter from Kyoto",
+    "secondary":"Traveling Foodie",
+    "createdBy": "Donna Miyoko",
+    "image":"/kyoto.png"}
+],
+"recipe":{
+    "title": "Creamy Bacon Penne",
+    "duration":"30 Min",
+    "image": "/Asset 1.png"
+}
+}
