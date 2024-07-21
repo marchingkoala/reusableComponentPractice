@@ -1,16 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const Container = ({image, variant = '', priorityTitle, duration, enableButton = true, secondaryTitle, createdBy, altDescription}) => {
-const styles = {
-    container:{
+// styles function that accept 'variant' as an argument to determine css element styles
+const styles = (variant)=> ({
+container:{
         display: 'flex',
         flexDirection: variant ? 'row': 'column',
         width: variant ? '372px':'249px',
     },
     imgContainer:{
         width: variant ? '141px' : '249px',
-        height: variant ? '89px' : '218px'
+        height: variant ? '89px' : '218px' 
     },
     summaryContainer:{
         maxHeight: '89px',
@@ -45,24 +45,29 @@ const styles = {
         fontFamily: "Noto Sans",
         fontWeight: '200',
         height: '20px'
-    }
-  };
+    }}
+  );
+
+// Container component that accept props from its parent
+const Container = ({image, variant = '', priorityTitle, duration, enableButton = true, secondaryTitle, createdBy, altDescription,}) => {
+    //calls styles function with variant prop, destructure the variables
+    const { container, imgContainer, summaryContainer, p, pThin, button} = styles(variant)
 
   return (
-    <div className='container' style={styles.container}>
-        <img src={image} style={styles.imgContainer} alt={altDescription}/>
-      <div className='summaryContainer' style={styles.summaryContainer}>
-        {variant && <p style={styles.pThin}>{secondaryTitle}</p>}
-        <p style={styles.p}>{priorityTitle}</p>
-        {duration && <p style={styles.p}>{duration}</p> }
-        {variant && <p style={styles.pThin}>By. {createdBy}</p>}
-        {enableButton == true && <button style={styles.button}>Make it</button>}
+    <div className='container' style={container}>
+        <img src={image} style={imgContainer} alt={altDescription}/>
+      <div className='summaryContainer' style={summaryContainer}>
+        {variant && <p style={pThin}>{secondaryTitle}</p>}
+        <p style={p}>{priorityTitle}</p>
+        {duration && <p style={p}>{duration}</p> }
+        {variant && <p style={pThin}>By. {createdBy}</p>}
+        {enableButton == true && <button style={button}>Make it</button>}
       </div>
     </div>
   );
 };
 
-Container.prototypes = {
+Container.propTypes = {
   image: PropTypes.string.isRequired,
   variant: PropTypes.string,
   priorityTitle: PropTypes.string.isRequired,
