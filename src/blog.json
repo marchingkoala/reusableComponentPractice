@@ -3,15 +3,19 @@
     {"title": "When it's too hot to cook",
     "secondary":"Kitchen Confidential",
     "createdBy": "Sarah Withermore",
-    "image": "/Asset 2.png" },
+    "image": "/Asset 2.png",
+    "altDescription":"Three black pots on a grill with roaring fire in the background" },
     {"title": "A letter from Kyoto",
     "secondary":"Traveling Foodie",
     "createdBy": "Donna Miyoko",
-    "image":"/kyoto.png"}
+    "image":"/kyoto.png",
+    "altDescription":"three geishas are standing on the street of Kyoto, Japan"
+}
 ],
 "recipe":{
     "title": "Creamy Bacon Penne",
     "duration":"30 Min",
-    "image": "/Asset 1.png"
+    "image": "/Asset 1.png",
+    "altDescription": "Creamy bacon penne pasta on a white plate"
 }
 }

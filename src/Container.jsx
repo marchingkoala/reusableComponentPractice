@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types'
 
-const Container = ({image, variant = '', priorityTitle, duration, enableButton, secondaryTitle, createdBy}) => {
+const Container = ({image, variant = '', priorityTitle, duration, enableButton = true, secondaryTitle, createdBy, altDescription}) => {
 const styles = {
     container:{
         display: 'flex',
@@ -24,10 +24,10 @@ const styles = {
         margin: '0px',
         color: 'black',
         fontSize: '13pt',
-        fontFamily: "Noto Sans",
         fontWeight: '400',
         height: '20px',
-        fontStyle: 'bold'
+        fontStyle: 'bold',
+        lineHeight: 'normal'
     },
     button:{
         width: '229px',
@@ -50,13 +50,13 @@ const styles = {
 
   return (
     <div className='container' style={styles.container}>
-        <img src={image} style={styles.imgContainer} />
+        <img src={image} style={styles.imgContainer} alt={altDescription}/>
       <div className='summaryContainer' style={styles.summaryContainer}>
-        {secondaryTitle && <p style={styles.pThin}>{secondaryTitle}</p>}
+        {variant && <p style={styles.pThin}>{secondaryTitle}</p>}
         <p style={styles.p}>{priorityTitle}</p>
         {duration && <p style={styles.p}>{duration}</p> }
-        {createdBy && <p style={styles.pThin}>By. {createdBy}</p>}
-        {!enableButton && <button style={styles.button}>Make it</button>}
+        {variant && <p style={styles.pThin}>By. {createdBy}</p>}
+        {enableButton == true && <button style={styles.button}>Make it</button>}
       </div>
     </div>
   );
@@ -70,5 +70,6 @@ Container.prototypes = {
   enableButton: PropTypes.bool,
   secondaryTitle: PropTypes.string,
   createdBy: PropTypes.string,
+  altDescription: PropTypes.string
 }
 export default Container;

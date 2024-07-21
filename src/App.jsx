@@ -9,7 +9,7 @@ function App() {
     <>
       <h1>Reusable Component Practice</h1>
       <div className='mainContainer'>
-      <Container image={recipe.image} priorityTitle={recipe.title} duration={recipe.duration}/>
+      <Container image={recipe.image} priorityTitle={recipe.title} duration={recipe.duration} altDescription={recipe.altDescription}/>
       <div className='innerContainer'>
         {article .map((el, ind)=>{
           return(
@@ -20,6 +20,7 @@ function App() {
               priorityTitle={el.title}
               secondaryTitle={el.secondary}
               createdBy={el.createdBy}
+              altDescription={el.altDescription}
             />
           )
         })}
